@@ -1,0 +1,110 @@
+/* ENGIMO CORPORATION - GLOBAL STYLE V1.0.4
+   Last Updated: 2011-04-03
+*/
+
+body {
+    background-color: #dce6f2;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.4) 4px, rgba(255,255,255,0.4) 8px);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+a {
+    color: #005bb5;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+#page-wrapper {
+    max-width: 960px;
+    width: 95%;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid #b5c4d6;
+    overflow: hidden;
+}
+
+/* Header & Logo */
+header {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
+    padding: 25px 30px;
+    border-bottom: 1px solid #d0dceb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+h1.logo {
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #1e5799;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 0px #fff, 2px 2px 3px rgba(0,0,0,0.15);
+}
+
+.beta-badge {
+    position: absolute;
+    top: -5px;
+    right: -45px;
+    background: #ff0000;
+    color: #fff;
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 4px;
+    transform: rotate(15deg);
+}
+
+/* Navigation Bar */
+nav {
+    background: linear-gradient(to bottom, #4b98e6 0%, #1e5799 100%);
+    border-bottom: 1px solid #133a66;
+    border-top: 1px solid #7cb7f2;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul li {
+    border-right: 1px solid #133a66;
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+
+nav ul li a {
+    display: block;
+    padding: 12px 25px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+}
+
+nav ul li a:hover, nav ul li.active a {
+    background: linear-gradient(to bottom, #5cacfc 0%, #2972c4 100%);
+}
+
+/* Footer */
+footer {
+    background: #eef3f9;
+    border-top: 1px solid #d0dceb;
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+}
+
+footer a {
+    color: #555;
+    margin: 0 5px;
+}
