@@ -1,0 +1,26 @@
+/* ENGIMO Legal/Privacy Styles
+   Location: https://static.engimo.org/css/common/legal.css
+*/
+
+.last-updated { font-style: italic; color: #777; font-size: 11px; margin-bottom: 25px; display: block; }
+
+main p { margin-bottom: 15px; text-align: justify; }
+main ul { margin-left: 20px; margin-bottom: 20px; }
+main li { margin-bottom: 8px; }
+
+/* Legal Nav Sidebar */
+.legal-nav { list-style: none; }
+.legal-nav li { margin-bottom: 5px; }
+.legal-nav li a {
+    display: block; padding: 8px 10px; background: #fff; border: 1px solid #ddd; border-radius: 4px; color: #555; font-weight: bold;
+}
+.legal-nav li.active a {
+    background: linear-gradient(to bottom, #7cb7f2, #4b98e6);
+    color: #fff; border-color: #133a66; text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+
+.privacy-seal {
+    text-align: center; margin-top: 30px; padding: 15px; border: 2px dashed #a3b8cc; background: #fff; border-radius: 50%;
+    width: 120px; height: 120px; margin: 30px auto; display: flex; flex-direction: column; justify-content: center; align-items: center;
+}
+.privacy-seal strong { color: #60b044; font-size: 16px; }
