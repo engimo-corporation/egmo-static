@@ -1,0 +1,78 @@
+/* ENGIMO Blog Styles
+   Location: https://static.engimo.org/css/apps/root/blog.css
+*/
+
+.blog-post {
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.blog-post h2 {
+    font-size: 24px;
+    color: #1e5799;
+    margin-bottom: 5px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+.blog-post h2 a {
+    color: inherit;
+}
+
+.post-meta {
+    font-size: 11px;
+    color: #888;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+    display: flex;
+    gap: 15px;
+}
+
+.post-meta i {
+    color: #ff9900;
+}
+
+.post-excerpt {
+    font-size: 14px;
+    line-height: 1.7;
+    color: #444;
+}
+
+.btn-read-more {
+    display: inline-block;
+    margin-top: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #ff9900;
+}
+
+.btn-read-more:hover {
+    color: #e66e00;
+}
+
+/* Pagination Style */
+.pagination {
+    margin: 20px 0;
+    padding: 10px;
+    background: #f7f9fc;
+    border: 1px solid #d0dceb;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.page-num {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+.page-num.active {
+    background: #1e5799;
+    color: #fff;
+    border-color: #133a66;
+}
