@@ -1,0 +1,225 @@
+/* =========================================
+   ENGIMO Privacy Policy CSS
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #dce6f2;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.4) 4px, rgba(255,255,255,0.4) 8px);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Arial, sans-serif;
+    color: #333;
+    line-height: 1.6;
+    font-size: 14px;
+}
+a {
+    color: #005bb5;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+/* Container Structure */
+#page-wrapper {
+    max-width: 960px;
+    width: 95%;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid #b5c4d6;
+    overflow: hidden;
+}
+/* Header / Logo */
+header {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
+    padding: 25px 30px;
+    border-bottom: 1px solid #d0dceb;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+.logo-container {
+    position: relative;
+}
+h1.logo {
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #1e5799;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 0px #fff, 2px 2px 3px rgba(0,0,0,0.15);
+    margin-bottom: -5px;
+}
+.tagline {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
+}
+.login-area {
+    text-align: right;
+    line-height: 1.8;
+}
+/* Navigation Bar - Glossy */
+nav {
+    background: linear-gradient(to bottom, #4b98e6 0%, #1e5799 100%);
+    border-bottom: 1px solid #133a66;
+    border-top: 1px solid #7cb7f2;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+nav ul li {
+    border-right: 1px solid #133a66;
+    border-left: 1px solid rgba(255,255,255,0.1);
+}
+nav ul li:first-child {
+    border-left: none;
+}
+nav ul li a {
+    display: block;
+    padding: 12px 25px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    transition: background 0.2s;
+}
+nav ul li a:hover {
+    background: linear-gradient(to bottom, #5cacfc 0%, #2972c4 100%);
+}
+/* Page Title Banner */
+#page-banner {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 20px 30px;
+    border-bottom: 5px solid #ff9900;
+}
+#page-banner h2 {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 24px;
+    text-shadow: 1px 1px 3px #000;
+}
+/* Main Content Layout */
+#content-area {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 30px;
+    gap: 30px;
+}
+main {
+    flex: 1 1 600px;
+}
+aside {
+    flex: 1 1 250px;
+    background: #f7f9fc;
+    border: 1px solid #d0dceb;
+    border-radius: 6px;
+    padding: 15px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.02);
+    align-self: flex-start;
+}
+/* Legal Typography */
+h3 {
+    color: #1e5799;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+h3:first-child {
+    margin-top: 0;
+}
+p {
+    margin-bottom: 15px;
+    text-align: justify;
+}
+.last-updated {
+    font-style: italic;
+    color: #777;
+    font-size: 11px;
+    margin-bottom: 25px;
+    display: block;
+}
+/* Sidebar Navigation for Legal Documents */
+.legal-nav {
+    list-style: none;
+    margin-bottom: 20px;
+}
+.legal-nav li {
+    margin-bottom: 5px;
+}
+.legal-nav li a {
+    display: block;
+    padding: 8px 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    color: #555;
+    font-weight: bold;
+}
+.legal-nav li a:hover {
+    background: #eef3f9;
+    border-color: #a3b8cc;
+    text-decoration: none;
+}
+.legal-nav li.active a {
+    background: linear-gradient(to bottom, #7cb7f2, #4b98e6);
+    color: #fff;
+    border-color: #133a66;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+}
+/* Fake Privacy Seal Badge */
+.privacy-seal {
+    text-align: center;
+    margin-top: 30px;
+    padding: 15px;
+    border: 2px dashed #a3b8cc;
+    background: #fff;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.privacy-seal strong {
+    color: #60b044;
+    font-family: "Arial Black", sans-serif;
+    font-size: 16px;
+}
+.privacy-seal span {
+    font-size: 10px;
+    color: #777;
+    text-transform: uppercase;
+}
+/* Footer */
+footer {
+    background: #eef3f9;
+    border-top: 1px solid #d0dceb;
+    padding: 20px 30px;
+    text-align: center;
+    font-size: 11px;
+    color: #777;
+}
+footer a {
+    color: #555;
+    margin: 0 5px;
+}
+@media (max-width: 768px) {
+    header { flex-direction: column; text-align: center; }
+    .login-area { text-align: center; margin-top: 10px; }
+    nav ul { flex-direction: column; }
+    nav ul li { border-right: none; border-bottom: 1px solid #133a66; border-left: none; }
+    #content-area { flex-direction: column; }
+}
