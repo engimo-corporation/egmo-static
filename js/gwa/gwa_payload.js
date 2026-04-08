@@ -2559,48 +2559,101 @@ let files = [
   "clwinterolympics",
   "clwolfchild",
 ];
+// --- RECENT SELECTIONS LOGIC ---
+const RECENTS_KEY = "engimo_gwa_recents";
+const MAX_RECENTS = 5;
+
+function getRecents() {
+  const stored = localStorage.getItem(RECENTS_KEY);
+  return stored ? JSON.parse(stored) : [];
+}
+
+function saveToRecents(fileName) {
+  let recents = getRecents();
+  // Remove if already exists to move it to the top
+  recents = recents.filter(name => name !== fileName);
+  // Add to start
+  recents.unshift(fileName);
+  // Limit to max count
+  if (recents.length > MAX_RECENTS) recents.pop();
+  
+  localStorage.setItem(RECENTS_KEY, JSON.stringify(recents));
+  renderRecentsSection();
+}
+
+function renderRecentsSection() {
+  const container = document.getElementById("sections-container");
+  let recentsSection = document.getElementById("section-recents");
+  const recents = getRecents();
+
+  // If no recents, remove the section if it exists
+  if (recents.length === 0) {
+    if (recentsSection) recentsSection.remove();
+    return;
+  }
+
+  // Create section if it doesn't exist
+  if (!recentsSection) {
+    recentsSection = document.createElement("div");
+    recentsSection.className = "letter-section";
+    recentsSection.id = "section-recents";
+    recentsSection.style.borderLeft = "4px solid #0056b3"; // Distinct styling for recents
+    container.prepend(recentsSection);
+  } else {
+    recentsSection.innerHTML = ""; // Clear for re-render
+  }
+
+  const header = document.createElement("div");
+  header.className = "letter-header";
+  header.innerHTML = '<i class="fa-solid fa-clock-rotate-left"></i> Recent Selections';
+  recentsSection.appendChild(header);
+
+  const buttonsContainer = document.createElement("div");
+  buttonsContainer.className = "buttons-container";
+
+  recents.forEach((file) => {
+    const btn = createOpenFileButton(file);
+    buttonsContainer.appendChild(btn);
+  });
+
+  recentsSection.appendChild(buttonsContainer);
+}
+
+// Helper to create the standard ENGIMO button
+function createOpenFileButton(file) {
+  const btn = document.createElement("input");
+  btn.className = "content-btn";
+  btn.type = "button";
+  btn.value = file;
+  btn.onclick = () => {
+    saveToRecents(file); // Track the click
+    
+    function normalizeFileName(name) {
+      if (name.includes(".") && name.lastIndexOf(".") > 0) return name;
+      return name + ".html";
+    }
+
+    const normalized = normalizeFileName(file);
+    const encoded = encodeURIComponent(normalized);
+
+    fetch(`https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile/UGS-Files/${encoded}?t=${Date.now()}`)
+      .then((response) => response.text())
+      .then((text) => {
+        const blob = new Blob([text], { type: "text/html" });
+        const blobUrl = URL.createObjectURL(blob);
+        window.open(blobUrl, "_blank", "noopener");
+        setTimeout(() => {
+          URL.revokeObjectURL(blobUrl);
+        }, 1500);
+      });
+  };
+  btn.style.width = "100%";
+  btn.style.height = "100%";
+  return btn;
+}
+
 function generateAllSections() {
-  try {
-    document.getElementById("lolbutton").remove();
-  } catch (e) {}
-  const allChars = [
-    "0",
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-    "G",
-    "H",
-    "I",
-    "J",
-    "K",
-    "L",
-    "M",
-    "N",
-    "O",
-    "P",
-    "Q",
-    "R",
-    "S",
-    "T",
-    "U",
-    "V",
-    "W",
-    "X",
-    "Y",
-    "Z",
-  ];
+  const allChars = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];
 
   const filesByChar = {};
   allChars.forEach((char) => {
@@ -2621,6 +2674,12 @@ function generateAllSections() {
   });
 
   const container = document.getElementById("sections-container");
+  container.innerHTML = ""; // Clear before generating
+
+  // 1. Initial render of recents
+  renderRecentsSection();
+
+  // 2. Render standard sections
   allChars.forEach((char) => {
     const section = document.createElement("div");
     section.className = "letter-section";
@@ -2636,42 +2695,7 @@ function generateAllSections() {
 
     if (filesByChar[char].length > 0) {
       filesByChar[char].forEach((file) => {
-        const btn = document.createElement("input");
-        btn.className = "content-btn";
-        btn.type = "button";
-        btn.value = file;
-        btn.onclick = () => {
-          function normalizeFileName(name) {
-            if (name.includes(".") && name.lastIndexOf(".") > 0) return name;
-            return name + ".html";
-          }
-
-          const normalized = normalizeFileName(file);
-          const encoded = encodeURIComponent(normalized);
-
-          fetch(
-            `https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile/UGS-Files/${encoded}?t=${Date.now()}`,
-          )
-            .then((response) => response.text())
-            .then((text) => {
-              // 1st Step: After the fetched text is entered into memory, convert it into an HTML blob.
-              const blob = new Blob([text], { type: "text/html" });
-
-              // 2nd Step: After the HTML blob is created, create a temporary client-side localized URL with the blob data.
-              const blobUrl = URL.createObjectURL(blob);
-
-              // 3rd Step: Open the blobbified HTML file into another tab, and use the "noopener" tag to separate it from the ENGIMO GWA system.
-              window.open(blobUrl, "_blank", "noopener");
-
-              // 4. Revoke the Blob URL to free it from the parent's memory
-              // A slight delay ensures the new tab has time to start loading it
-              setTimeout(() => {
-                URL.revokeObjectURL(blobUrl);
-              }, 1500)
-            });
-        };
-        btn.style.width = "100%";
-        btn.style.height = "100%";
+        const btn = createOpenFileButton(file);
         buttonsContainer.appendChild(btn);
       });
     } else {
@@ -2691,6 +2715,24 @@ function generateAllSections() {
 
 function generateSidebar(allChars, filesByChar) {
   const sidebar = document.getElementById("sidebar");
+  
+  // Keep the UserButton area but clear the rest
+  const userButtonArea = document.getElementById("user-button-area");
+  sidebar.innerHTML = "";
+  if (userButtonArea) sidebar.appendChild(userButtonArea);
+
+  // Recents Sidebar Shortcut
+  const recentBtn = document.createElement("button");
+  recentBtn.className = "sidebar-btn";
+  recentBtn.innerHTML = '<i class="fa-solid fa-clock"></i>';
+  recentBtn.title = "Recents";
+  recentBtn.onclick = () => {
+    const section = document.getElementById("section-recents");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  sidebar.appendChild(recentBtn);
 
   allChars.forEach((char) => {
     const btn = document.createElement("button");
@@ -2703,15 +2745,13 @@ function generateSidebar(allChars, filesByChar) {
       btn.onclick = () => {
         const section = document.getElementById(`section-${char}`);
         if (section) {
-          section.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
+          section.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       };
     }
-
     sidebar.appendChild(btn);
   });
 }
+
+// Initial Kickoff
 generateAllSections();
