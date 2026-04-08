@@ -1,209 +1,38 @@
-/* =========================================
-   WEB 2.0 ERA GLOBAL STYLES (Match Homepage)
-   ========================================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
-    background-color: #dce6f2;
-    background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.4) 4px, rgba(255,255,255,0.4) 8px);
-    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Arial, sans-serif;
-    color: #333;
-    line-height: 1.6;
-    font-size: 14px;
-}
-a { color: #005bb5; text-decoration: none; }
-a:hover { text-decoration: underline; }
-#page-wrapper {
-    max-width: 960px;
-    width: 95%;
-    margin: 20px auto;
-    background: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-    border: 1px solid #b5c4d6;
-    overflow: hidden;
-}
-/* Header Match */
-header {
-    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
-    padding: 25px 30px;
-    border-bottom: 1px solid #d0dceb;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-h1.logo {
-    font-family: "Trebuchet MS", "Arial Black", sans-serif;
-    font-size: 42px;
-    font-weight: bold;
-    color: #1e5799;
-    letter-spacing: -1px;
-    text-shadow: 1px 1px 0px #fff, 2px 2px 3px rgba(0,0,0,0.15);
-}
-.login-area { text-align: right; }
-.btn-small {
-    display: inline-block;
-    padding: 4px 12px;
-    border-radius: 3px;
-    font-size: 11px;
-    text-decoration: none !important;
-    margin-left: 5px;
-}
-.btn-gray {
-    background: #f4f4f4;
-    border: 1px solid #ccc;
-    color: #333 !important;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
-}
-.btn-blue {
-    background: linear-gradient(to bottom, #7cb7f2, #4b98e6);
-    border: 1px solid #133a66;
-    color: #fff !important;
-    font-weight: bold;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.2);
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
-}
-/* Nav Match */
-nav {
-    background: linear-gradient(to bottom, #4b98e6 0%, #1e5799 100%);
-    border-bottom: 1px solid #133a66;
-    border-top: 1px solid #7cb7f2;
-    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
-}
-nav ul { list-style: none; display: flex; }
-nav ul li { border-right: 1px solid #133a66; }
-nav ul li a {
-    display: block;
-    padding: 12px 20px;
-    color: #ffffff;
-    font-weight: bold;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
-}
-nav ul li a:hover { background: linear-gradient(to bottom, #5cacfc 0%, #2972c4 100%); text-decoration: none; }
-/* Page Banner */
-#page-banner {
-    background: #2b2b2b;
-    color: #fff;
-    padding: 20px 30px;
-    border-bottom: 5px solid #ff9900;
-}
-#page-banner h2 { font-family: "Trebuchet MS", sans-serif; font-size: 24px; text-shadow: 1px 1px 3px #000; }
-/* Main Content Grid */
-#content-area { display: flex; padding: 30px; gap: 30px; }
-main { flex: 2; }
-aside { flex: 1; }
-/* Support Hero Card */
+/* ENGIMO Support Styles
+   Location: https://static.engimo.org/css/common/support.css
+*/
+
 .knowledge-hero {
     background: linear-gradient(to bottom, #fcfdfe, #eef3f9);
     border: 1px solid #cdd8e4;
     border-radius: 6px;
     padding: 30px;
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    margin-bottom: 30px;
-    display: block; /* Link container */
+    display: block;
     color: inherit;
-    text-decoration: none !important;
     transition: all 0.2s ease;
     position: relative;
+    margin-bottom: 30px;
 }
-.knowledge-hero:hover {
-    border-color: #ff9900;
-    background: linear-gradient(to bottom, #ffffff, #f0f7ff);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-.knowledge-hero:active {
-    transform: translateY(0);
-    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
-}
+.knowledge-hero:hover { border-color: #ff9900; transform: translateY(-2px); box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
 .knowledge-hero i { font-size: 48px; color: #1e5799; margin-bottom: 15px; }
-.knowledge-hero h3 { font-size: 20px; color: #1e5799; margin-bottom: 10px; font-family: "Trebuchet MS", sans-serif; }
+.hero-badge { position: absolute; top: 10px; right: 10px; background: #ff9900; color: #fff; font-size: 9px; padding: 3px 6px; border-radius: 3px; }
 
-/* Support Form */
-.support-form {
-    background: #fff;
-    border: 1px solid #b5c4d6;
-    padding: 25px;
-    border-radius: 6px;
-    box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
-}
-.support-form h3 { color: #1e5799; font-family: "Trebuchet MS", sans-serif; margin-bottom: 20px; border-bottom: 1px dotted #ccc; padding-bottom: 10px; }
+/* Ticket Form */
+.support-form { background: #fff; border: 1px solid #b5c4d6; padding: 25px; border-radius: 6px; }
 .form-group { margin-bottom: 15px; }
 .form-group label { display: block; font-weight: bold; margin-bottom: 5px; font-size: 12px; }
 .form-group input, .form-group select, .form-group textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-family: inherit;
+    width: 100%; padding: 8px; border: 1px solid #ccc; border-radius: 3px; font-family: inherit;
 }
-.form-group textarea { height: 120px; resize: vertical; }
-
 .btn-submit {
     background: linear-gradient(to bottom, #ffc84d 0%, #ff9900 50%, #e66e00 51%, #cc5200 100%);
-    border: 1px solid #993d00;
-    color: #fff;
-    padding: 12px 25px;
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 4px;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
-    transition: opacity 0.2s;
+    border: 1px solid #993d00; color: #fff; padding: 12px 25px; font-weight: bold; cursor: pointer; border-radius: 4px; text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
 }
-.btn-submit:hover { opacity: 0.9; }
-/* Sidebar Widget Match */
-.widget {
-    background: #f7f9fc;
-    border: 1px solid #d0dceb;
-    border-radius: 6px;
-    margin-bottom: 20px;
-    overflow: hidden;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-}
-.widget-header {
-    background: linear-gradient(to bottom, #5cacfc, #1e5799);
-    color: white;
-    padding: 8px 12px;
-    font-size: 13px;
-    font-weight: bold;
-    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
-    border-bottom: 1px solid #133a66;
-}
-.widget-content { padding: 15px; font-size: 12px; }
-.status-badge {
-    display: inline-block;
-    padding: 2px 8px;
-    border-radius: 10px;
-    font-size: 10px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #fff;
-}
+
+/* System Status Items */
+.status-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.status-badge { display: inline-block; padding: 2px 8px; border-radius: 10px; font-size: 10px; font-weight: bold; color: #fff; text-transform: uppercase; }
 .badge-green { background: #60b044; }
 .badge-gray { background: #999; }
-
-.status-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 8px;
-}
 .latency { font-size: 10px; color: #888; font-family: monospace; }
-/* Footer */
-footer {
-    background: #eef3f9;
-    border-top: 1px solid #d0dceb;
-    padding: 25px 30px;
-    text-align: center;
-    font-size: 11px;
-    color: #777;
-}
-@media (max-width: 768px) {
-    #content-area { flex-direction: column; }
-}
