@@ -1,0 +1,52 @@
+[
+  {
+    id: "KB-7012",
+    title: "Understanding Hardware IDs (HID)",
+    excerpt: "Explanation of how ENGIMO binds software to physical machine components.",
+    category: "Licensing",
+    tags: ["activation", "hardware", "drm"],
+    content: `
+      <div class="article-header">
+        <h2>KB-7012: Understanding Hardware IDs (HID)</h2>
+        <span class="last-updated">Published: Sept 28, 2011 | Version: 1.4</span>
+      </div>
+      <div class="article-body">
+        <p>At ENGIMO, we believe in true ownership. To ensure that your software remains an asset tied to your hardware, we use a <strong>Hardware Identifier (HID)</strong> system.</p>
+        <h4>How the HID is generated</h4>
+        <p>When you launch an ENGIMO product for the first time, our engine scans your system for non-volatile components. This includes your motherboard's GUID and your primary CPU's thermal signature profile.</p>
+        <div class="kb-code">SYSTEM_HID: ENG-8821-BC99-AF01</div>
+        <h4>Does this track me?</h4>
+        <p>No. The HID is a one-way cryptographic hash. We do not know what kind of computer you have; we only know that "License A" belongs to "Machine B".</p>
+      </div>
+                        `
+  },
+  {
+    id: "KB-1022",
+    title: "Firewall Port Configuration",
+    excerpt: "Required ports for GWA (Global Workspace Access) connectivity.",
+    category: "Network",
+    tags: ["gwa", "ports", "firewall", "security"],
+    content: `
+                            <div class="article-header">
+                                <h2>KB-1022: Firewall Port Configuration</h2>
+                                <span class="last-updated">Published: Oct 02, 2011 | Version: 2.1</span>
+                            </div>
+                            <div class="article-body">
+                                <p>To ensure seamless connection to the ENGIMO GWA Portal, your corporate firewall must permit traffic on the following specialized ports.</p>
+                                <h4>Standard Protocol Ports</h4>
+                                <ul>
+                                    <li><strong>Port 8443:</strong> Primary GWA Tunnel (TCP)</li>
+                                    <li><strong>Port 8888:</strong> Auth Node Handshake (UDP)</li>
+                                </ul>
+                            </div>
+                        `
+    },
+  {
+    id: "KB-7013",
+    title: "Generating Transfer Tokens",
+    excerpt: "Moving your license from one machine to another using secure tokens.",
+    category: "Licensing",
+    tags: ["transfer", "license", "token"],
+    content: `<div class="article-header"><h2>KB-7013: Generating Transfer Tokens</h2></div><div class="article-body"><p>To transfer your license, you must generate a token on the source machine while offline.</p></div>`
+  }
+]
