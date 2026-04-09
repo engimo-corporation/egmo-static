@@ -275,6 +275,7 @@ let files = [
   "clburritobisonrevenge",
   "clbushidoblade",
   "clBusterJam",
+  "clComms",
   "clcactusmccoy",
   "clcactusmccoy2(1)",
   "clcactusmccoy2",
@@ -2636,7 +2637,7 @@ function createOpenFileButton(file) {
     const normalized = normalizeFileName(file);
     const encoded = encodeURIComponent(normalized);
 
-    fetch(`https://cdn.jsdelivr.net/gh/bubbls/ugs-singlefile/UGS-Files/${encoded}?t=${Date.now()}`)
+    fetch(`https://cdn.jsdelivr.net/gh/engimo-corporation/egmo-ugs/UGS-Files/${encoded}?t=${Date.now()}`)
       .then((response) => response.text())
       .then((text) => {
         const blob = new Blob([text], { type: "text/html" });
