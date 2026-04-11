@@ -1,73 +1,27 @@
 /* =========================================
-   ENGIMO Global Workspace Access
-   Material Design 3 (MD3) Dark Theme
+   ENGIMO Global Workspace Access CSS Styling.
    ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-
-:root {
-    /* MD3 Dark Theme Palette - ENGIMO Blue/Orange Inspired */
-    --md-sys-color-background: #111318;
-    --md-sys-color-on-background: #e2e2e9;
-    --md-sys-color-surface: #111318;
-    --md-sys-color-surface-container-lowest: #0c0e13;
-    --md-sys-color-surface-container-low: #191c20;
-    --md-sys-color-surface-container: #1d2024;
-    --md-sys-color-surface-container-high: #282a2f;
-    --md-sys-color-surface-container-highest: #33353a;
-    --md-sys-color-on-surface: #e2e2e9;
-    --md-sys-color-on-surface-variant: #c4c6d0;
-    --md-sys-color-outline: #8e9099;
-    --md-sys-color-outline-variant: #44474e;
-
-    /* Primary (Engimo Blue adaptation) */
-    --md-sys-color-primary: #a8c7fa;
-    --md-sys-color-on-primary: #062e6f;
-    --md-sys-color-primary-container: #00409c; /* Darker blue container */
-    --md-sys-color-on-primary-container: #d6e3ff;
-
-    /* Secondary */
-    --md-sys-color-secondary: #bfc6dc;
-    --md-sys-color-secondary-container: #3b4858;
-    --md-sys-color-on-secondary-container: #d7e3f7;
-
-    /* Tertiary (Engimo Orange adaptation) */
-    --md-sys-color-tertiary: #ffb77c;
-    --md-sys-color-on-tertiary: #4d2700;
-    --md-sys-color-tertiary-container: #6d3900;
-    --md-sys-color-on-tertiary-container: #ffdcbe;
-
-    /* Error / Locked States */
-    --md-sys-color-error: #ffb4ab;
-    --md-sys-color-on-error: #690005;
-    --md-sys-color-error-container: #93000a;
-    --md-sys-color-on-error-container: #ffdad6;
-}
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
 }
-
 body {
     height: 100vh;
     overflow: hidden;
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
-    font-size: 14px;
-    line-height: 1.5;
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Arial, sans-serif;
+    background-color: #dce6f2;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.4) 4px, rgba(255,255,255,0.4) 8px);
+    color: #333;
+    font-size: 13px;
 }
-
 a {
-    color: var(--md-sys-color-primary);
+    color: #005bb5;
     text-decoration: none;
 }
 a:hover {
     text-decoration: underline;
 }
-
 /* View toggles */
 .view-section { 
     display: none; 
@@ -77,7 +31,6 @@ a:hover {
 .view-section.active { 
     display: flex; 
 }
-
 /* =========================================
    PHASE 1: LOADING SCREEN STYLES
    ========================================= */
@@ -86,830 +39,261 @@ a:hover {
     justify-content: center;
     flex-direction: column;
 }
-
 .loading-container {
-    background: var(--md-sys-color-surface-container-high);
-    border-radius: 28px;
-    padding: 32px;
+    background: #ffffff;
+    border: 1px solid #b5c4d6;
+    border-radius: 6px;
+    padding: 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     text-align: center;
     width: 350px;
-    border: none;
-    box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15); /* MD3 Elevation 3 */
 }
-
 .loading-text {
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--md-sys-color-on-surface);
-    margin-bottom: 24px;
-}
-
-/* MD3 Linear Progress Indicator */
-.progress-bar-wrap {
-    width: 100%;
-    height: 4px;
-    background: var(--md-sys-color-surface-container-highest);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background: var(--md-sys-color-primary);
-    width: 50%;
-    border-radius: 2px;
-    position: absolute;
-    animation: md3-progress 1.5s infinite ease-in-out;
-}
-
-@keyframes md3-progress {
-    0% { left: -50%; width: 50%; }
-    50% { left: 25%; width: 50%; }
-    100% { left: 100%; width: 50%; }
-}
-
-/* =========================================
-   AUTH SCREENS (DIALOGS) OVERRIDES
-   ========================================= */
-#view-auth, #view-locked, #view-incomplete, #view-restricted {
-    align-items: center;
-    justify-content: center;
-}
-
-/* Overriding the inline styles set in the HTML */
-.auth-box {
-    background: var(--md-sys-color-surface-container-high) !important;
-    padding: 32px !important;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 28px !important;
-    box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15) !important; /* MD3 Elevation 3 */
-    text-align: center;
-    border: none !important;
-}
-
-.auth-box > div:first-child[style*="background: #333"] {
-    /* Targets the inline header on the restricted screen to blend it into MD3 */
-    background: transparent !important;
-    color: var(--md-sys-color-error) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 16px !important;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-}
-
-.auth-icon {
-    font-size: 36px !important;
-    color: var(--md-sys-color-primary) !important;
-    margin-bottom: 16px;
-}
-
-.auth-title {
-    font-size: 24px !important;
-    font-weight: 400 !important;
-    color: var(--md-sys-color-on-surface) !important;
-    margin-bottom: 16px !important;
-    font-family: 'Google Sans', sans-serif !important;
-}
-
-.auth-subtitle {
-    color: var(--md-sys-color-on-surface-variant) !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 32px !important;
-    border: none !important;
-    padding-bottom: 0 !important;
-    background: transparent !important;
-    font-family: 'Google Sans', sans-serif !important;
-}
-
-/* MD3 Filled Button */
-.auth-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
-    border: none !important;
-    border-radius: 100px !important; /* Pill shape */
-    padding: 0 24px !important;
-    height: 40px;
-    font-family: 'Google Sans', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    text-shadow: none !important;
-    box-shadow: none !important;
-}
-
-.auth-btn:hover {
-    background: #b5cffa !important; /* Hover state tint */
-    box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.15) !important; /* MD3 Elevation 1 */
-}
-
-.auth-btn:active {
-    background: #c3d8fa !important; /* Focus/Active state tint */
-    box-shadow: none !important;
-}
-
-.auth-msg {
-    margin-top: 16px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--md-sys-color-error);
-    min-height: 16px;
-}
-
-/* State Overrides for Error / Warning Views */
-#view-locked .auth-box, #view-restricted .auth-box {
-    background: var(--md-sys-color-error-container) !important;
-}
-#view-locked .auth-icon, #view-locked .auth-title, 
-#view-restricted .auth-icon, #view-restricted .auth-title {
-    color: var(--md-sys-color-on-error-container) !important;
-}
-#view-locked .auth-subtitle, #view-restricted .auth-subtitle {
-    color: var(--md-sys-color-on-error-container) !important;
-    opacity: 0.9;
-}
-#view-locked .auth-btn, #view-restricted .auth-btn {
-    background: var(--md-sys-color-error) !important;
-    color: var(--md-sys-color-on-error) !important;
-}
-#view-locked .auth-btn:hover, #view-restricted .auth-btn:hover {
-    background: #ffc4be !important;
-}
-
-#view-incomplete .auth-box {
-    background: var(--md-sys-color-tertiary-container) !important;
-}
-#view-incomplete .auth-icon, #view-incomplete .auth-title {
-    color: var(--md-sys-color-on-tertiary-container) !important;
-}
-#view-incomplete .auth-subtitle {
-    color: var(--md-sys-color-on-tertiary-container) !important;
-    opacity: 0.9;
-}
-#view-incomplete .auth-btn {
-    background: var(--md-sys-color-tertiary) !important;
-    color: var(--md-sys-color-on-tertiary) !important;
-}
-#view-incomplete .auth-btn:hover {
-    background: #ffc89b !important;
-}
-
-/* =========================================
-   PHASE 3: MAIN APP (MD3 NAVIGATION RAIL)
-   ========================================= */
-#view-main { 
-    flex-direction: row; 
-    background: var(--md-sys-color-background) !important; /* Override inline SVG */
-}
-
-/* MD3 Navigation Rail */
-.sidebar {
-    position: fixed; 
-    left: 0; 
-    top: 0; 
-    width: 80px; 
-    height: 100vh;
-    background: var(--md-sys-color-surface);
-    border-right: none;
-    box-shadow: none;
-    padding: 24px 0; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 12px; 
-    overflow-y: auto; 
-    z-index: 1000;
-}
-
-/* Dark MD3 Scrollbar */
-.sidebar::-webkit-scrollbar, .main-content::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track, .main-content::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb, .main-content::-webkit-scrollbar-thumb { background: var(--md-sys-color-outline-variant); border-radius: 4px; }
-.sidebar::-webkit-scrollbar-thumb:hover, .main-content::-webkit-scrollbar-thumb:hover { background: var(--md-sys-color-outline); }
-
-.sidebar-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: transparent;
-    border: none;
-    color: var(--md-sys-color-on-surface-variant);
-    font-family: 'Google Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: none;
-    text-shadow: none;
-    transition: background-color 0.2s, color 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sidebar-btn:hover {
-    background: var(--md-sys-color-surface-container-highest);
-    color: var(--md-sys-color-on-surface);
-}
-
-.sidebar-btn.active {
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-    border-radius: 16px; /* Pill/rounded square for active */
-}
-
-.sidebar-btn.empty {
-    opacity: 0.3;
-    cursor: default;
-}
-.sidebar-btn.empty:hover {
-    background: transparent;
-    color: var(--md-sys-color-on-surface-variant);
-}
-
-#user-button-area {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 24px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
-    box-shadow: none;
-}
-
-/* Main Workspace */
-.main-content { 
-    margin-left: 80px;
-    flex: 1; 
-    padding: 40px;
-    width: calc(100% - 80px);
-    overflow-y: auto;
-    height: 100vh;
-    background: var(--md-sys-color-background);
-    box-shadow: none;
-}
-
-.main-content h1 {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--md-sys-color-on-background);
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 32px;
-    letter-spacing: 0;
-    text-shadow: none;
-}
-
-/* Content Blocks (MD3 Cards) */
-.letter-section {
-    background: var(--md-sys-color-surface-container-low);
-    border: 1px solid var(--md-sys-color-outline-variant);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: none;
-}
-
-.letter-section[style*="border-left"] {
-    /* Neutralize the inline border on the Recents section */
-    border-left: 1px solid var(--md-sys-color-outline-variant) !important;
-}
-
-.letter-header {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--md-sys-color-primary);
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    background: none;
-    padding-left: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.buttons-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
-}
-
-/* Custom App Buttons (MD3 Tonal Buttons) */
-.content-btn {
-    background: var(--md-sys-color-surface-container-highest);
-    border: none;
-    color: var(--md-sys-color-on-surface);
-    padding: 0 24px !important; /* Force padding */
-    min-height: 64px !important; /* Overrides inline height: 100% to create a tall, lenient click target */
-    height: auto !important;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Google Sans', sans-serif;
-    border-radius: 16px;
-    cursor: pointer;
-    text-align: left;
-    box-shadow: none;
-    transition: background-color 0.2s, color 0.2s, transform 0.1s;
-    width: 100% !important; /* Ensure it properly fills the grid */
-}
-
-/* Removed the ::after tag since inputs do not natively support pseudo elements */
-
-.content-btn:hover {
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-}
-
-.content-btn:active {
-    background: var(--md-sys-color-outline-variant);
-    box-shadow: none;
-    transform: scale(0.98); /* Tactile click feedback */
-}
-
-.empty-message {
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 14px;
-    font-weight: 400;
-    padding: 16px;
-    background: transparent;
-    border: 1px dashed var(--md-sys-color-outline-variant);
-    border-radius: 12px;
-    text-align: center;
-}/* =========================================
-   ENGIMO Global Workspace Access
-   Material Design 3 (MD3) Dark Theme
-   ========================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Google Sans:wght@400;500;700&display=swap');
-
-:root {
-    /* MD3 Dark Theme Palette - ENGIMO Blue/Orange Inspired */
-    --md-sys-color-background: #111318;
-    --md-sys-color-on-background: #e2e2e9;
-    --md-sys-color-surface: #111318;
-    --md-sys-color-surface-container-lowest: #0c0e13;
-    --md-sys-color-surface-container-low: #191c20;
-    --md-sys-color-surface-container: #1d2024;
-    --md-sys-color-surface-container-high: #282a2f;
-    --md-sys-color-surface-container-highest: #33353a;
-    --md-sys-color-on-surface: #e2e2e9;
-    --md-sys-color-on-surface-variant: #c4c6d0;
-    --md-sys-color-outline: #8e9099;
-    --md-sys-color-outline-variant: #44474e;
-
-    /* Primary (Engimo Blue adaptation) */
-    --md-sys-color-primary: #a8c7fa;
-    --md-sys-color-on-primary: #062e6f;
-    --md-sys-color-primary-container: #00409c; /* Darker blue container */
-    --md-sys-color-on-primary-container: #d6e3ff;
-
-    /* Secondary */
-    --md-sys-color-secondary: #bfc6dc;
-    --md-sys-color-secondary-container: #3b4858;
-    --md-sys-color-on-secondary-container: #d7e3f7;
-
-    /* Tertiary (Engimo Orange adaptation) */
-    --md-sys-color-tertiary: #ffb77c;
-    --md-sys-color-on-tertiary: #4d2700;
-    --md-sys-color-tertiary-container: #6d3900;
-    --md-sys-color-on-tertiary-container: #ffdcbe;
-
-    /* Error / Locked States */
-    --md-sys-color-error: #ffb4ab;
-    --md-sys-color-on-error: #690005;
-    --md-sys-color-error-container: #93000a;
-    --md-sys-color-on-error-container: #ffdad6;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Google Sans', system-ui, -apple-system, sans-serif;
-}
-
-body {
-    height: 100vh;
-    overflow: hidden;
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
-    font-size: 14px;
-    line-height: 1.5;
-}
-
-a {
-    color: var(--md-sys-color-primary);
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-}
-
-/* View toggles */
-.view-section { 
-    display: none; 
-    width: 100%; 
-    height: 100vh; 
-}
-.view-section.active { 
-    display: flex; 
-}
-
-/* =========================================
-   PHASE 1: LOADING SCREEN STYLES
-   ========================================= */
-#view-loading {
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.loading-container {
-    background: var(--md-sys-color-surface-container-high);
-    border-radius: 28px;
-    padding: 32px;
-    text-align: center;
-    width: 350px;
-    border: none;
-    box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15); /* MD3 Elevation 3 */
-}
-
-.loading-text {
-    font-size: 24px;
-    font-weight: 400;
-    color: var(--md-sys-color-on-surface);
-    margin-bottom: 24px;
-}
-
-/* MD3 Linear Progress Indicator */
-.progress-bar-wrap {
-    width: 100%;
-    height: 4px;
-    background: var(--md-sys-color-surface-container-highest);
-    border-radius: 2px;
-    overflow: hidden;
-    position: relative;
-    border: none;
-    box-shadow: none;
-    padding: 0;
-}
-
-.progress-bar-fill {
-    height: 100%;
-    background: var(--md-sys-color-primary);
-    width: 50%;
-    border-radius: 2px;
-    position: absolute;
-    animation: md3-progress 1.5s infinite ease-in-out;
-}
-
-@keyframes md3-progress {
-    0% { left: -50%; width: 50%; }
-    50% { left: 25%; width: 50%; }
-    100% { left: 100%; width: 50%; }
-}
-
-/* =========================================
-   AUTH SCREENS (DIALOGS) OVERRIDES
-   ========================================= */
-#view-auth, #view-locked, #view-incomplete, #view-restricted {
-    align-items: center;
-    justify-content: center;
-}
-
-/* Overriding the inline styles set in the HTML */
-.auth-box {
-    background: var(--md-sys-color-surface-container-high) !important;
-    padding: 32px !important;
-    width: 100%;
-    max-width: 400px;
-    border-radius: 28px !important;
-    box-shadow: 0px 4px 8px 3px rgba(0,0,0,0.15) !important; /* MD3 Elevation 3 */
-    text-align: center;
-    border: none !important;
-}
-
-.auth-box > div:first-child[style*="background: #333"] {
-    /* Targets the inline header on the restricted screen to blend it into MD3 */
-    background: transparent !important;
-    color: var(--md-sys-color-error) !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    margin-bottom: 16px !important;
-    font-size: 14px;
-    letter-spacing: 0.1em;
-}
-
-.auth-icon {
-    font-size: 36px !important;
-    color: var(--md-sys-color-primary) !important;
-    margin-bottom: 16px;
-}
-
-.auth-title {
-    font-size: 24px !important;
-    font-weight: 400 !important;
-    color: var(--md-sys-color-on-surface) !important;
-    margin-bottom: 16px !important;
-    font-family: 'Google Sans', sans-serif !important;
-}
-
-.auth-subtitle {
-    color: var(--md-sys-color-on-surface-variant) !important;
-    font-size: 14px !important;
-    line-height: 1.5 !important;
-    margin-bottom: 32px !important;
-    border: none !important;
-    padding-bottom: 0 !important;
-    background: transparent !important;
-    font-family: 'Google Sans', sans-serif !important;
-}
-
-/* MD3 Filled Button */
-.auth-btn {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    background: var(--md-sys-color-primary) !important;
-    color: var(--md-sys-color-on-primary) !important;
-    border: none !important;
-    border-radius: 100px !important; /* Pill shape */
-    padding: 0 24px !important;
-    height: 40px;
-    font-family: 'Google Sans', sans-serif !important;
-    font-weight: 500 !important;
-    font-size: 14px !important;
-    cursor: pointer;
-    width: 100%;
-    transition: background-color 0.2s, box-shadow 0.2s;
-    text-shadow: none !important;
-    box-shadow: none !important;
-}
-
-.auth-btn:hover {
-    background: #b5cffa !important; /* Hover state tint */
-    box-shadow: 0px 1px 3px 1px rgba(0,0,0,0.15) !important; /* MD3 Elevation 1 */
-}
-
-.auth-btn:active {
-    background: #c3d8fa !important; /* Focus/Active state tint */
-    box-shadow: none !important;
-}
-
-.auth-msg {
-    margin-top: 16px;
-    font-size: 12px;
-    font-weight: 500;
-    color: var(--md-sys-color-error);
-    min-height: 16px;
-}
-
-/* State Overrides for Error / Warning Views */
-#view-locked .auth-box, #view-restricted .auth-box {
-    background: var(--md-sys-color-error-container) !important;
-}
-#view-locked .auth-icon, #view-locked .auth-title, 
-#view-restricted .auth-icon, #view-restricted .auth-title {
-    color: var(--md-sys-color-on-error-container) !important;
-}
-#view-locked .auth-subtitle, #view-restricted .auth-subtitle {
-    color: var(--md-sys-color-on-error-container) !important;
-    opacity: 0.9;
-}
-#view-locked .auth-btn, #view-restricted .auth-btn {
-    background: var(--md-sys-color-error) !important;
-    color: var(--md-sys-color-on-error) !important;
-}
-#view-locked .auth-btn:hover, #view-restricted .auth-btn:hover {
-    background: #ffc4be !important;
-}
-
-#view-incomplete .auth-box {
-    background: var(--md-sys-color-tertiary-container) !important;
-}
-#view-incomplete .auth-icon, #view-incomplete .auth-title {
-    color: var(--md-sys-color-on-tertiary-container) !important;
-}
-#view-incomplete .auth-subtitle {
-    color: var(--md-sys-color-on-tertiary-container) !important;
-    opacity: 0.9;
-}
-#view-incomplete .auth-btn {
-    background: var(--md-sys-color-tertiary) !important;
-    color: var(--md-sys-color-on-tertiary) !important;
-}
-#view-incomplete .auth-btn:hover {
-    background: #ffc89b !important;
-}
-
-/* =========================================
-   PHASE 3: MAIN APP (MD3 NAVIGATION RAIL)
-   ========================================= */
-#view-main { 
-    flex-direction: row; 
-    background: var(--md-sys-color-background) !important; /* Override inline SVG */
-}
-
-/* MD3 Navigation Rail */
-.sidebar {
-    position: fixed; 
-    left: 0; 
-    top: 0; 
-    width: 80px; 
-    height: 100vh;
-    background: var(--md-sys-color-surface);
-    border-right: none;
-    box-shadow: none;
-    padding: 24px 0; 
-    display: flex; 
-    flex-direction: column;
-    align-items: center;
-    gap: 12px; 
-    overflow-y: auto; 
-    z-index: 1000;
-}
-
-/* Dark MD3 Scrollbar */
-.sidebar::-webkit-scrollbar, .main-content::-webkit-scrollbar { width: 6px; }
-.sidebar::-webkit-scrollbar-track, .main-content::-webkit-scrollbar-track { background: transparent; }
-.sidebar::-webkit-scrollbar-thumb, .main-content::-webkit-scrollbar-thumb { background: var(--md-sys-color-outline-variant); border-radius: 4px; }
-.sidebar::-webkit-scrollbar-thumb:hover, .main-content::-webkit-scrollbar-thumb:hover { background: var(--md-sys-color-outline); }
-
-.sidebar-btn {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    background: transparent;
-    border: none;
-    color: var(--md-sys-color-on-surface-variant);
-    font-family: 'Google Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    cursor: pointer;
-    box-shadow: none;
-    text-shadow: none;
-    transition: background-color 0.2s, color 0.2s;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.sidebar-btn:hover {
-    background: var(--md-sys-color-surface-container-highest);
-    color: var(--md-sys-color-on-surface);
-}
-
-.sidebar-btn.active {
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
-    border-radius: 16px; /* Pill/rounded square for active */
-}
-
-.sidebar-btn.empty {
-    opacity: 0.3;
-    cursor: default;
-}
-.sidebar-btn.empty:hover {
-    background: transparent;
-    color: var(--md-sys-color-on-surface-variant);
-}
-
-#user-button-area {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding-bottom: 24px;
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--md-sys-color-outline-variant);
-    box-shadow: none;
-}
-
-/* Main Workspace */
-.main-content { 
-    margin-left: 80px;
-    flex: 1; 
-    padding: 40px;
-    width: calc(100% - 80px);
-    overflow-y: auto;
-    height: 100vh;
-    background: var(--md-sys-color-background);
-    box-shadow: none;
-}
-
-.main-content h1 {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 36px;
-    font-weight: 400;
-    color: var(--md-sys-color-on-background);
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 32px;
-    letter-spacing: 0;
-    text-shadow: none;
-}
-
-/* Content Blocks (MD3 Cards) */
-.letter-section {
-    background: var(--md-sys-color-surface-container-low);
-    border: 1px solid var(--md-sys-color-outline-variant);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
-    box-shadow: none;
-}
-
-.letter-section[style*="border-left"] {
-    /* Neutralize the inline border on the Recents section */
-    border-left: 1px solid var(--md-sys-color-outline-variant) !important;
-}
-
-.letter-header {
-    font-family: 'Google Sans', sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: var(--md-sys-color-primary);
-    border-bottom: none;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    background: none;
-    padding-left: 0;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.buttons-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 12px;
-}
-
-/* Custom App Buttons (MD3 Tonal Buttons) */
-.content-btn {
-    background: var(--md-sys-color-surface-container-highest);
-    border: none;
-    color: var(--md-sys-color-on-surface);
-    padding: 0 16px;
-    height: 56px;
-    font-size: 14px;
-    font-weight: 500;
-    font-family: 'Google Sans', sans-serif;
-    border-radius: 12px;
-    cursor: pointer;
-    text-align: left;
-    position: relative;
-    box-shadow: none;
-    transition: background-color 0.2s, color 0.2s;
-    display: flex;
-    align-items: center;
-}
-
-.content-btn::after {
-    /* Modern minimal arrow replacing the orange Web 2.0 arrows */
-    content: '→';
-    position: absolute;
-    right: 16px;
-    color: var(--md-sys-color-on-surface-variant);
+    font-family: "Trebuchet MS", sans-serif;
     font-size: 18px;
-    font-weight: 400;
-    transition: transform 0.2s, color 0.2s;
+    font-weight: bold;
+    color: #1e5799;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 0px #fff;
 }
-
-.content-btn:hover {
-    background: var(--md-sys-color-secondary-container);
-    color: var(--md-sys-color-on-secondary-container);
+/* Classic Fake Progress Bar */
+.progress-bar-wrap {
+    width: 100%;
+    height: 22px;
+    background: #eef3f9;
+    border: 1px solid #a3b8cc;
+    padding: 2px;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
 }
-
-.content-btn:hover::after {
-    color: var(--md-sys-color-on-secondary-container);
-    transform: translateX(4px);
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(to bottom, #7cb7f2 0%, #4b98e6 50%, #1e5799 51%, #0b3e7a 100%);
+    width: 0%;
+    animation: fakeLoad 1.5s linear forwards;
 }
-
-.content-btn:active {
-    background: var(--md-sys-color-outline-variant);
-    box-shadow: none;
+@keyframes fakeLoad {
+    0% { width: 5%; }
+    50% { width: 60%; }
+    100% { width: 100%; }
 }
-
-.empty-message {
-    color: var(--md-sys-color-on-surface-variant);
-    font-size: 14px;
-    font-weight: 400;
-    padding: 16px;
-    background: transparent;
-    border: 1px dashed var(--md-sys-color-outline-variant);
-    border-radius: 12px;
+/* =========================================
+   PHASE 2: AUTH SCREEN STYLES
+   ========================================= */
+#view-auth {
+    align-items: center;
+    justify-content: center;
+}
+.auth-box {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
+    padding: 40px;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     text-align: center;
+    border: 1px solid #b5c4d6;
+}
+.auth-icon {
+    font-size: 52px;
+    color: #1e5799;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+.auth-title {
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    color: #1e5799;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 0px #fff;
+}
+.auth-subtitle {
+    color: #555;
+    font-size: 13px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 20px;
+}
+/* Glossy Orange Button */
+.auth-btn {
+    display: inline-block;
+    background: linear-gradient(to bottom, #ffc84d 0%, #ff9900 50%, #e66e00 51%, #cc5200 100%);
+    border: 1px solid #993d00;
+    border-radius: 20px;
+    padding: 12px 30px;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 16px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.6), 0 2px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+    width: 100%;
+}
+.auth-btn:hover {
+    background: linear-gradient(to bottom, #ffd673 0%, #ffaa22 50%, #f07b00 51%, #e05e00 100%);
+}
+.auth-btn:active {
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+    background: linear-gradient(to bottom, #cc5200 0%, #e66e00 50%, #ff9900 51%, #ffc84d 100%);
+}
+.auth-msg {
+    margin-top: 15px;
+    font-size: 11px;
+    font-weight: bold;
+    color: #d9534f;
+    min-height: 15px;
+}
+/* =========================================
+   PHASE 3: MAIN APP STYLES
+   ========================================= */
+#view-main { 
+    flex-direction: row; 
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="20"/></svg>') no-repeat right top #2b2b2b;
+}
+.sidebar {
+    position: fixed; 
+    left: 0; 
+    top: 0; 
+    width: 80px; 
+    height: 100vh;
+    background: linear-gradient(to right, #eef3f9 0%, #dce6f2 100%);
+    border-right: 1px solid #a3b8cc;
+    box-shadow: inset -1px 0 0 #fff, 2px 0 5px rgba(0,0,0,0.1);
+    padding: 15px 0; 
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; 
+    overflow-y: auto; 
+    z-index: 1000;
+}
+/* Custom Scrollbar for the vintage feel */
+.sidebar::-webkit-scrollbar { width: 8px; }
+.sidebar::-webkit-scrollbar-track { background: #dce6f2; border-left: 1px solid #b5c4d6; }
+.sidebar::-webkit-scrollbar-thumb { background: #a3b8cc; border-radius: 4px; }
+.sidebar-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #ffffff 0%, #f4f7f9 100%);
+    border: 1px solid #b5c4d6;
+    color: #1e5799;
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.05);
+    text-shadow: 1px 1px 0px #fff;
+}
+.sidebar-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #e0eaf3 100%);
+    border-color: #7cb7f2;
+}
+.sidebar-btn.active {
+    background: linear-gradient(to bottom, #4b98e6 0%, #1e5799 100%);
+    color: white;
+    border-color: #133a66;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
+    box-shadow: inset 0 2px 5px rgba(0,0,0,0.3);
+}
+.main-content { 
+    margin-left: 80px;
+    flex: 1; 
+    padding: 30px;
+    width: calc(100% - 80px);
+    overflow-y: auto;
+    height: 100vh;
+    background: #ffffff; /* White workspace area */
+    box-shadow: inset 5px 0 10px rgba(0,0,0,0.05);
+}
+.main-content h1 {
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    font-size: 32px;
+    font-weight: bold;
+    color: #1e5799;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 0px #fff, 2px 2px 3px rgba(0,0,0,0.15);
+    border-bottom: 4px solid #ff9900;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+}
+/* Content Blocks */
+.letter-section {
+    background: linear-gradient(to bottom, #fefefe, #f4f7f9);
+    border: 1px solid #cdd8e4;
+    border-radius: 6px;
+    padding: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), inset 0 1px 0 #fff;
+}
+.letter-header {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 22px;
+    font-weight: bold;
+    color: #1e5799;
+    border-bottom: 1px dotted #a3b8cc;
+    padding-bottom: 8px;
+    margin-bottom: 15px;
+    background: url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/svgs/solid/folder-open.svg') no-repeat left center;
+    background-size: 20px;
+    padding-left: 28px;
+}
+.buttons-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 15px;
+}
+/* Custom App Buttons (Web 2.0 Style) */
+.content-btn {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
+    border: 1px solid #b5c4d6;
+    color: #333;
+    padding: 12px 15px;
+    font-size: 13px;
+    font-weight: bold;
+    font-family: Tahoma, Arial, sans-serif;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: left;
+    position: relative;
+    box-shadow: inset 0 1px 0 #fff, 0 1px 2px rgba(0,0,0,0.05);
+}
+.content-btn::after {
+    content: '»';
+    position: absolute;
+    right: 15px;
+    color: #ff9900;
+    font-size: 16px;
+    font-weight: bold;
+}
+.content-btn:hover {
+    background: linear-gradient(to bottom, #ffffff 0%, #dce6f2 100%);
+    border-color: #7cb7f2;
+    color: #1e5799;
+}
+.content-btn:active {
+    background: #dce6f2;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.1);
+    border-color: #a3b8cc;
+}
+.empty-message {
+    color: #777;
+    font-size: 12px;
+    font-style: italic;
+    padding: 10px;
+    background: #fff;
+    border: 1px dashed #ccc;
+    text-align: center;
+}
+#user-button-area {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 15px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #b5c4d6;
+    box-shadow: 0 1px 0 #fff;
 }
