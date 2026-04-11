@@ -1,236 +1,213 @@
 /* =========================================
-   ENGIMO GLOBAL STYLES - MD3 EDITION
-   Design Language: Material Design 3 (Dark)
-   Font: Google Sans
+   ENGIMO ROOT WEBSITE - GLOBAL STYLES (v1.0)
+   Last Updated: 2011-04-07
    ========================================= */
 
-@import url('https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap');
-
-/* Fallback for Google Sans if not locally available via system */
-@font-face {
-    font-family: 'Google Sans';
-    src: local('Google Sans Regular'), local('Google Sans'), url('https://fonts.gstatic.com/s/googlesans/v14/4UaGrENHsxJlGDuGo1OIlL3Kwp5eKQtG.woff2') format('woff2');
-    font-weight: 400;
-}
-
-:root {
-    /* MD3 Dark Palette */
-    --md-sys-color-background: #111318;
-    --md-sys-color-on-background: #e2e2e9;
-    --md-sys-color-surface: #111318;
-    --md-sys-color-surface-container: #1d2024;
-    --md-sys-color-surface-container-high: #282a2f;
-    --md-sys-color-surface-variant: #44474e;
-    --md-sys-color-on-surface: #e2e2e9;
-    --md-sys-color-on-surface-variant: #c4c6d0;
-    --md-sys-color-outline: #8e9099;
-
-    /* Brand Primary (The Engimo Blue) */
-    --md-sys-color-primary: #a8c7fa;
-    --md-sys-color-on-primary: #062e6f;
-    --md-sys-color-primary-container: #00409c;
-    --md-sys-color-on-primary-container: #d6e3ff;
-
-    /* Brand Tertiary (The Engimo Orange) */
-    --md-sys-color-tertiary: #ffb77c;
-    --md-sys-color-on-tertiary: #4d2700;
-    --md-sys-color-tertiary-container: #6d3900;
-    --md-sys-color-on-tertiary-container: #ffdcbe;
-
-    /* Error / Danger */
-    --md-sys-color-error: #ffb4ab;
-    --md-sys-color-on-error: #690005;
-    
-    /* Layout Tokens */
-    --md-sys-shape-corner-small: 8px;
-    --md-sys-shape-corner-medium: 12px;
-    --md-sys-shape-corner-large: 28px;
-}
-
-/* 1. Base Setup */
+/* 1. CSS Reset & Base Setup */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
 }
 
 body {
-    background-color: var(--md-sys-color-background);
-    color: var(--md-sys-color-on-background);
-    font-family: 'Google Sans', 'Open Sans', system-ui, sans-serif;
+    background-color: #dce6f2;
+    background-image: repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.4) 4px, rgba(255,255,255,0.4) 8px);
+    font-family: "Lucida Grande", "Lucida Sans Unicode", Tahoma, Arial, sans-serif;
+    color: #333;
     line-height: 1.6;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 a {
-    color: var(--md-sys-color-primary);
+    color: #005bb5;
     text-decoration: none;
-    transition: opacity 0.2s;
 }
 
 a:hover {
-    opacity: 0.8;
+    text-decoration: underline;
 }
 
-/* 2. Global Container (Replacing the fixed 960 Grid) */
+/* 2. Container Structure (960 Grid) */
 #page-wrapper {
-    max-width: 1200px;
-    width: 92%;
-    margin: 40px auto;
-    background: var(--md-sys-color-surface-container);
-    border-radius: var(--md-sys-shape-corner-large);
+    max-width: 960px;
+    width: 95%;
+    margin: 20px auto;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    border: 1px solid #b5c4d6;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
-/* 3. Header & Navigation */
-#header {
-    background: var(--md-sys-color-surface-container-high);
-    padding: 24px 40px;
+/* 3. Header & Brand */
+header {
+    background: linear-gradient(to bottom, #ffffff 0%, #eef3f9 100%);
+    padding: 25px 30px;
+    border-bottom: 1px solid #d0dceb;
     display: flex;
-    align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid var(--md-sys-color-surface-variant);
+    align-items: center;
 }
 
-#logo h1 {
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -0.5px;
-    color: var(--md-sys-color-primary);
+h1.logo {
+    font-family: "Trebuchet MS", "Arial Black", sans-serif;
+    font-size: 42px;
+    font-weight: bold;
+    color: #1e5799;
+    letter-spacing: -1px;
+    text-shadow: 1px 1px 0px #fff, 2px 2px 3px rgba(0,0,0,0.15);
 }
 
-#logo span {
-    color: var(--md-sys-color-on-surface-variant);
-    font-weight: 400;
+.tagline {
+    font-size: 13px;
+    color: #666;
+    font-style: italic;
 }
 
-#main-nav ul {
+/* 4. Navigation (Glossy Blue) */
+nav {
+    background: linear-gradient(to bottom, #4b98e6 0%, #1e5799 100%);
+    border-bottom: 1px solid #133a66;
+    border-top: 1px solid #7cb7f2;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3);
+}
+
+nav ul {
     list-style: none;
     display: flex;
-    gap: 8px;
 }
 
-#main-nav a {
-    padding: 10px 20px;
-    border-radius: 100px;
-    color: var(--md-sys-color-on-surface);
-    font-weight: 500;
-    font-size: 14px;
-    transition: background 0.2s;
+nav ul li {
+    border-right: 1px solid #133a66;
 }
 
-#main-nav a:hover, #main-nav a.active {
-    background: var(--md-sys-color-surface-variant);
+nav ul li a {
+    display: block;
+    padding: 12px 20px;
+    color: #ffffff;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.5);
 }
 
-/* 4. Content Area */
-#content-main {
-    padding: 40px;
+nav ul li a:hover {
+    background: linear-gradient(to bottom, #5cacfc 0%, #2972c4 100%);
+    text-decoration: none;
 }
 
-h2 {
-    font-size: 32px;
-    font-weight: 400;
-    margin-bottom: 24px;
-    color: var(--md-sys-color-on-background);
+/* 5. Content Layout & Typography */
+#page-banner {
+    background: #2b2b2b;
+    color: #fff;
+    padding: 20px 30px;
+    border-bottom: 5px solid #ff9900;
 }
 
-p {
-    margin-bottom: 20px;
-    color: var(--md-sys-color-on-surface-variant);
+#page-banner h2 {
+    font-family: "Trebuchet MS", sans-serif;
+    font-size: 24px;
+    text-shadow: 1px 1px 3px #000;
 }
 
-/* 5. Components (Widgets/Cards) */
+#content-area {
+    display: flex;
+    padding: 30px;
+    gap: 30px;
+}
+
+main {
+    flex: 2;
+}
+
+aside {
+    flex: 1;
+}
+
+h3 {
+    color: #1e5799;
+    border-bottom: 1px dotted #ccc;
+    padding-bottom: 5px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    font-family: "Trebuchet MS", sans-serif;
+}
+
+/* 6. UI Components (Widgets & Buttons) */
 .widget {
-    background: var(--md-sys-color-surface-container-high);
-    border-radius: var(--md-sys-shape-corner-medium);
-    margin-bottom: 24px;
-    border: 1px solid var(--md-sys-color-surface-variant);
-    transition: transform 0.2s;
+    background: #f7f9fc;
+    border: 1px solid #d0dceb;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
 }
 
-.widget-title {
-    padding: 16px 20px;
-    font-size: 14px;
-    font-weight: 500;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: var(--md-sys-color-primary);
-    border-bottom: 1px solid var(--md-sys-color-surface-variant);
+.widget-header {
+    background: linear-gradient(to bottom, #5cacfc, #1e5799);
+    color: white;
+    padding: 8px 12px;
+    font-size: 13px;
+    font-weight: bold;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
+    border-bottom: 1px solid #133a66;
 }
 
 .widget-content {
-    padding: 20px;
+    padding: 15px;
 }
 
-/* 6. Buttons (MD3 Standard) */
-.btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 24px;
-    height: 40px;
-    border-radius: 100px;
-    font-weight: 500;
-    font-size: 14px;
-    cursor: pointer;
-    border: none;
-    transition: all 0.2s;
+/* Buttons */
+.btn-small {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-decoration: none !important;
 }
 
-/* Primary Filled */
-.btn-blue, .btn-submit {
-    background: var(--md-sys-color-primary);
-    color: var(--md-sys-color-on-primary);
-}
-
-.btn-blue:hover, .btn-submit:hover {
-    box-shadow: 0 1px 3px rgba(0,0,0,0.3);
-    background: #b5cffa;
-}
-
-/* Tonal / Gray */
 .btn-gray {
-    background: var(--md-sys-color-surface-variant);
-    color: var(--md-sys-color-on-surface);
+    background: #f4f4f4;
+    border: 1px solid #ccc;
+    color: #333 !important;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
 }
 
-.btn-gray:hover {
-    background: #50535a;
+.btn-blue {
+    background: linear-gradient(to bottom, #7cb7f2, #4b98e6);
+    border: 1px solid #133a66;
+    color: #fff !important;
+    font-weight: bold;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 1px 2px rgba(0,0,0,0.2);
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.3);
 }
 
-/* Tertiary (The Orange) */
-.btn-orange {
-    background: var(--md-sys-color-tertiary);
-    color: var(--md-sys-color-on-tertiary);
+.btn-submit {
+    background: linear-gradient(to bottom, #ffc84d 0%, #ff9900 50%, #e66e00 51%, #cc5200 100%);
+    border: 1px solid #993d00;
+    color: #fff;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    text-shadow: 0 -1px 0 rgba(0,0,0,0.4);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.15);
 }
 
 /* 7. Footer */
-#footer {
-    padding: 40px;
-    background: var(--md-sys-color-surface-container-high);
-    border-top: 1px solid var(--md-sys-color-surface-variant);
+footer {
+    background: #eef3f9;
+    border-top: 1px solid #d0dceb;
+    padding: 25px 30px;
     text-align: center;
-    font-size: 12px;
-    color: var(--md-sys-color-on-surface-variant);
+    font-size: 11px;
+    color: #777;
 }
 
-/* 8. Mobile Responsiveness */
+/* 8. Responsiveness */
 @media (max-width: 768px) {
-    #header {
-        flex-direction: column;
-        gap: 20px;
-        padding: 20px;
-    }
-    
-    #page-wrapper {
-        margin: 10px auto;
-        width: 95%;
-    }
-    
-    #content-main {
-        padding: 20px;
-    }
+    #content-area { flex-direction: column; }
+    nav ul { flex-direction: column; }
+    nav ul li { border-right: none; border-bottom: 1px solid #133a66; }
+    header { flex-direction: column; text-align: center; }
+    .login-area { margin-top: 15px; }
 }
